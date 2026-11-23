@@ -80,6 +80,12 @@ main, .header, footer { position: relative; z-index: 1; }
 .item h3 { margin: 8px 0 6px; font-size: 1.05rem; font-weight: 600; }
 .item p { font-size: .92rem; color: var(--muted); margin: 0; }
 
+.skills { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.skills li {
+  font-size: .75rem; padding: 3px 10px; border-radius: 999px;
+  border: 1px solid #555; color: #ccc;
+}
+
 .btn {
   display: inline-block; margin-top: 8px; padding: 11px 26px;
   border: 1px solid var(--text); border-radius: 8px; font-weight: 600;
