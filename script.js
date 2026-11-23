@@ -1,131 +1,71 @@
-// ===== Tema claro/escuro =====
-const root = document.documentElement;
-const themeBtn = document.getElementById('theme-toggle');
+// ===== Fundo de constelação animada =====
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+let points = [];
+let mouse = { x: null, y: null };
 
-function applyTheme(theme) {
-  root.setAttribute('data-theme', theme);
-  themeBtn.textContent = theme === 'light' ? '☀️' : '🌙';
-}
-applyTheme(localStorage.getItem('theme') || 'dark');
-
-themeBtn.addEventListener('click', () => {
-  const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-  localStorage.setItem('theme', next);
-  applyTheme(next);
-});
-
-// ===== Menu mobile =====
-const navLinks = document.getElementById('nav-links');
-document.getElementById('menu-toggle').addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-navLinks.querySelectorAll('a').forEach(a =>
-  a.addEventListener('click', () => navLinks.classList.remove('open'))
-);
-
-// ===== Header, botão topo =====
-const header = document.getElementById('header');
-const toTop = document.getElementById('to-top');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 10);
-  toTop.classList.toggle('show', window.scrollY > 500);
-});
-toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-// ===== Efeito de digitação =====
-const words = ['Desenvolvedor Web', 'Designer de Interfaces', 'Criador de Projetos'];
-const typingEl = document.getElementById('typing');
-let w = 0, c = 0, deleting = false;
-
-function type() {
-  const word = words[w];
-  typingEl.textContent = word.substring(0, c);
-  let delay = deleting ? 50 : 110;
-
-  if (!deleting && c === word.length) { deleting = true; delay = 1400; }
-  else if (deleting && c === 0) { deleting = false; w = (w + 1) % words.length; delay = 400; }
-  else { c += deleting ? -1 : 1; }
-
-  setTimeout(type, delay);
-}
-type();
-
-// ===== Animação ao rolar (reveal, barras, contadores) =====
-function animateCount(el) {
-  const target = +el.dataset.count;
-  let n = 0;
-  const step = Math.max(1, Math.ceil(target / 40));
-  const timer = setInterval(() => {
-    n = Math.min(target, n + step);
-    el.textContent = n + '+';
-    if (n >= target) clearInterval(timer);
-  }, 40);
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const count = Math.min(120, Math.floor((canvas.width * canvas.height) / 14000));
+  points = Array.from({ length: count }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.25,
+    vy: (Math.random() - 0.5) * 0.25,
+    r: Math.random() * 1.5 + 0.8
+  }));
 }
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const el = entry.target;
-    el.classList.add('visible');
-    el.querySelectorAll('.fill').forEach(f => f.style.width = f.dataset.width + '%');
-    el.querySelectorAll('[data-count]').forEach(animateCount);
-    observer.unobserve(el);
-  });
-}, { threshold: 0.15 });
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const maxDist = 120;
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  for (let i = 0; i < points.length; i++) {
+    const p = points[i];
+    p.x += p.vx;
+    p.y += p.vy;
+    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-// ===== Link ativo no menu =====
-const sections = document.querySelectorAll('main section[id]');
-const links = document.querySelectorAll('.nav-links a');
-const spy = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(200,200,200,.7)';
+    ctx.fill();
+
+    for (let j = i + 1; j < points.length; j++) {
+      const q = points[j];
+      const d = Math.hypot(p.x - q.x, p.y - q.y);
+      if (d < maxDist) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(q.x, q.y);
+        ctx.strokeStyle = `rgba(200,200,200,${(1 - d / maxDist) * 0.35})`;
+        ctx.lineWidth = 0.6;
+        ctx.stroke();
+      }
     }
-  });
-}, { rootMargin: '-45% 0px -50% 0px' });
-sections.forEach(s => spy.observe(s));
 
-// ===== Filtro de projetos =====
-const filters = document.querySelectorAll('.filter');
-const cards = document.querySelectorAll('.card');
-filters.forEach(btn => btn.addEventListener('click', () => {
-  filters.forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  const f = btn.dataset.filter;
-  cards.forEach(card => {
-    card.classList.toggle('hide', f !== 'all' && card.dataset.category !== f);
-  });
-}));
-
-// ===== Formulário de contato =====
-const form = document.getElementById('contact-form');
-const status = document.getElementById('form-status');
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const fields = [form.name, form.email, form.message];
-  let valid = true;
-
-  fields.forEach(f => {
-    const ok = f.value.trim() !== '' && (f.type !== 'email' || /^\S+@\S+\.\S+$/.test(f.value));
-    f.classList.toggle('invalid', !ok);
-    if (!ok) valid = false;
-  });
-
-  status.className = 'form-status';
-  if (!valid) {
-    status.textContent = 'Preencha todos os campos corretamente.';
-    status.classList.add('error');
-    return;
+    // liga os pontos ao mouse
+    if (mouse.x !== null) {
+      const d = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+      if (d < 150) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.strokeStyle = `rgba(255,255,255,${(1 - d / 150) * 0.5})`;
+        ctx.stroke();
+      }
+    }
   }
+  requestAnimationFrame(draw);
+}
 
-  // Aqui você pode integrar com Formspree, EmailJS etc.
-  status.textContent = 'Mensagem enviada! Obrigado pelo contato.';
-  status.classList.add('ok');
-  form.reset();
-});
+window.addEventListener('resize', resize);
+window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+window.addEventListener('mouseleave', () => { mouse.x = mouse.y = null; });
+resize();
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) draw();
 
 // ===== Ano no rodapé =====
 document.getElementById('year').textContent = new Date().getFullYear();
