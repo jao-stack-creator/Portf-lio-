@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de desenvolvedor web — projetos, habilidades e contato.">
+  <title>Seu Nome | Portfólio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#inicio" class="logo">&lt;SeuNome/&gt;</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" aria-label="Alternar tema">🌙</button>
+        <button id="menu-toggle" class="icon-btn menu-btn" aria-label="Abrir menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="container hero-content">
+        <p class="hero-hello">Olá, eu sou</p>
+        <h1>Seu Nome</h1>
+        <h2>Eu sou <span id="typing" class="typing"></span><span class="cursor">|</span></h2>
+        <p class="hero-text">Crio sites e aplicações modernas, rápidas e bonitas, com foco em boa experiência para quem usa.</p>
+        <div class="hero-buttons">
+          <a href="#projetos" class="btn btn-primary">Ver projetos</a>
+          <a href="#contato" class="btn btn-outline">Fale comigo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section">
+      <div class="container about">
+        <div class="about-photo reveal">
+          <div class="photo-placeholder">SN</div>
+        </div>
+        <div class="about-text reveal">
+          <h2 class="section-title">Sobre mim</h2>
+          <p>Sou desenvolvedor apaixonado por transformar ideias em produtos digitais. Trabalho com HTML, CSS e JavaScript e estou sempre aprendendo novas tecnologias.</p>
+          <p>Gosto de código limpo, design responsivo e de resolver problemas reais. Fora do computador, curto jogos, música e café.</p>
+          <ul class="stats">
+            <li><strong data-count="20">0</strong><span>Projetos</span></li>
+            <li><strong data-count="3">0</strong><span>Anos de estudo</span></li>
+            <li><strong data-count="10">0</strong><span>Clientes felizes</span></li>
+          </ul>
+          <a href="#" class="btn btn-primary">Baixar currículo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="section alt">
+      <div class="container">
+        <h2 class="section-title center reveal">Habilidades</h2>
+        <div class="skills">
+          <div class="skill reveal">
+            <div class="skill-head"><span>HTML5</span><span>90%</span></div>
+            <div class="bar"><div class="fill" data-width="90"></div></div>
+          </div>
+          <div class="skill reveal">
+            <div class="skill-head"><span>CSS3</span><span>85%</span></div>
+            <div class="bar"><div class="fill" data-width="85"></div></div>
+          </div>
+          <div class="skill reveal">
+            <div class="skill-head"><span>JavaScript</span><span>75%</span></div>
+            <div class="bar"><div class="fill" data-width="75"></div></div>
+          </div>
+          <div class="skill reveal">
+            <div class="skill-head"><span>Git &amp; GitHub</span><span>70%</span></div>
+            <div class="bar"><div class="fill" data-width="70"></div></div>
+          </div>
+          <div class="skill reveal">
+            <div class="skill-head"><span>Design responsivo</span><span>80%</span></div>
+            <div class="bar"><div class="fill" data-width="80"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="section">
+      <div class="container">
+        <h2 class="section-title center reveal">Projetos</h2>
+        <div class="filters reveal">
+          <button class="filter active" data-filter="all">Todos</button>
+          <button class="filter" data-filter="web">Web</button>
+          <button class="filter" data-filter="app">Apps</button>
+          <button class="filter" data-filter="game">Jogos</button>
+        </div>
+        <div class="projects">
+          <article class="card reveal" data-category="web">
+            <div class="card-img g1">🌐</div>
+            <div class="card-body">
+              <h3>Landing Page</h3>
+              <p>Página moderna e responsiva para divulgação de um serviço.</p>
+              <div class="tags"><span>HTML</span><span>CSS</span></div>
+              <div class="card-links"><a href="#">Demo</a><a href="#">Código</a></div>
+            </div>
+          </article>
+          <article class="card reveal" data-category="app">
+            <div class="card-img g2">✅</div>
+            <div class="card-body">
+              <h3>Lista de Tarefas</h3>
+              <p>App para organizar tarefas com armazenamento local.</p>
+              <div class="tags"><span>JavaScript</span><span>LocalStorage</span></div>
+              <div class="card-links"><a href="#">Demo</a><a href="#">Código</a></div>
+            </div>
+          </article>
+          <article class="card reveal" data-category="game">
+            <div class="card-img g3">🎮</div>
+            <div class="card-body">
+              <h3>Jogo da Memória</h3>
+              <p>Jogo de cartas com contador de jogadas e animações.</p>
+              <div class="tags"><span>JavaScript</span><span>CSS</span></div>
+              <div class="card-links"><a href="#">Demo</a><a href="#">Código</a></div>
+            </div>
+          </article>
+          <article class="card reveal" data-category="web">
+            <div class="card-img g4">🛒</div>
+            <div class="card-body">
+              <h3>Loja Virtual</h3>
+              <p>Vitrine de produtos com carrinho de compras.</p>
+              <div class="tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
+              <div class="card-links"><a href="#">Demo</a><a href="#">Código</a></div>
+            </div>
+          </article>
+          <article class="card reveal" data-category="app">
+            <div class="card-img g5">🌦️</div>
+            <div class="card-body">
+              <h3>App de Clima</h3>
+              <p>Consulta a previsão do tempo consumindo uma API.</p>
+              <div class="tags"><span>API</span><span>JavaScript</span></div>
+              <div class="card-links"><a href="#">Demo</a><a href="#">Código</a></div>
+            </div>
+          </article>
+          <article class="card reveal" data-category="game">
+            <div class="card-img g6">🐍</div>
+            <div class="card-body">
+              <h3>Snake</h3>
+              <p>Clássico jogo da cobrinha feito com canvas.</p>
+              <div class="tags"><span>Canvas</span><span>JavaScript</span></div>
+              <div class="card-links"><a href="#">Demo</a><a href="#">Código</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section alt">
+      <div class="container contact">
+        <div class="reveal">
+          <h2 class="section-title">Vamos conversar?</h2>
+          <p>Tem um projeto em mente ou quer bater um papo? Envie uma mensagem!</p>
+          <ul class="contact-list">
+            <li>📧 seuemail@exemplo.com</li>
+            <li>📍 Brasil</li>
+            <li><a href="#" target="_blank" rel="noopener">GitHub</a> · <a href="#" target="_blank" rel="noopener">LinkedIn</a> · <a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+        <form id="contact-form" class="form reveal" novalidate>
+          <label>Nome
+            <input type="text" id="name" required placeholder="Seu nome">
+          </label>
+          <label>E-mail
+            <input type="email" id="email" required placeholder="voce@email.com">
+          </label>
+          <label>Mensagem
+            <textarea id="message" rows="5" required placeholder="Escreva sua mensagem"></textarea>
+          </label>
+          <p class="form-status" id="form-status" role="status"></p>
+          <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Seu Nome. Todos os direitos reservados.</p>
+  </footer>
+
+  <button id="to-top" class="to-top" aria-label="Voltar ao topo">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
