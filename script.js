@@ -81,3 +81,35 @@ discord.addEventListener('click', async (e) => {
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 2500);
 });
+
+
+// ===== Animação ao rolar =====
+document.documentElement.classList.add('js');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if (en.isIntersecting) { en.target.classList.add('visible'); revealObs.unobserve(en.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// ===== Menu mobile =====
+const menuBtn = document.getElementById('menu-btn');
+const nav = document.getElementById('nav');
+menuBtn.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', open);
+});
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false);
+}));
+
+// ===== Link ativo no menu =====
+const navLinks = nav.querySelectorAll('a');
+const spy = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + en.target.id));
+    }
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+document.querySelectorAll('main section[id]').forEach(sec => spy.observe(sec));

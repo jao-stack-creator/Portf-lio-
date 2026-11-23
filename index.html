@@ -13,10 +13,14 @@
 
   <header class="header">
     <a href="#inicio" class="brand">João Pedro Rocha</a>
-    <nav>
+    <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav id="nav">
       <a href="#inicio">Início</a>
       <a href="#sobre">Sobre</a>
       <a href="#trabalho">Trabalho</a>
+      <a href="#formacao">Formação</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#cursos">Cursos</a>
       <a href="#contato">Contato</a>
     </nav>
   </header>
@@ -46,13 +50,15 @@
       </div>
     </section>
 
-    <section id="sobre" class="section">
+    <section id="sobre" class="section reveal">
+      <span class="eyebrow">01 · Quem sou</span>
       <h2>Sobre</h2>
       <p>Sou o João Pedro Rocha, estudante de <strong>Engenharia de Software</strong> e fundador de uma <strong>empresa de jogos para Roblox</strong>, onde crio experiências que reúnem jogadores e histórias.</p>
       <p>Também trabalho com <strong>marketing digital e tráfego pago</strong>: crio e testo ofertas, produzo criativos e gerencio campanhas no <strong>Meta Ads</strong>. Já atuei como <strong>social media</strong>, cuidando de conteúdo e comunidade, e atuo com <strong>produção de eventos</strong>, do planejamento à execução. Essa mistura de tecnologia, comunicação e organização é o que move meu trabalho.</p>
     </section>
 
-    <section id="trabalho" class="section">
+    <section id="trabalho" class="section reveal">
+      <span class="eyebrow">02 · Áreas</span>
       <h2>O que eu faço</h2>
       <div class="grid">
         <article class="item">
@@ -95,7 +101,123 @@
       </div>
     </section>
 
-    <section id="contato" class="section">
+    <section id="formacao" class="section reveal">
+      <span class="eyebrow">03 · Estudos</span>
+      <h2>Formação acadêmica</h2>
+      <div class="timeline">
+        <article class="tl-item">
+          <span class="tl-dot"></span>
+          <span class="tl-date">Início: 2026 · Noturno</span>
+          <h3>Engenharia de Software</h3>
+          <p class="tl-place">UDF · Centro Universitário do Distrito Federal</p>
+          <p>Graduação em andamento, focada em desenvolvimento de sistemas e boas práticas de programação.</p>
+          <span class="badge now">Cursando</span>
+        </article>
+        <article class="tl-item">
+          <span class="tl-dot"></span>
+          <span class="tl-date">Conclusão: 2025</span>
+          <h3>Ensino Médio</h3>
+          <p class="tl-place">Ensino Médio completo</p>
+          <span class="badge done">Concluído</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="experiencia" class="section reveal">
+      <span class="eyebrow">04 · Carreira</span>
+      <h2>Experiência profissional</h2>
+      <div class="timeline">
+        <article class="tl-item">
+          <span class="tl-dot"></span>
+          <span class="tl-date">Atual</span>
+          <h3>Fundador · Empresa de jogos no Roblox</h3>
+          <p>Desenvolvimento e publicação de jogos na plataforma Roblox, da ideia ao lançamento.</p>
+          <span class="badge now">Em andamento</span>
+        </article>
+        <article class="tl-item">
+          <span class="tl-dot"></span>
+          <span class="tl-date">Atual</span>
+          <h3>Tráfego Pago &amp; Marketing Digital</h3>
+          <p>Criação e teste de ofertas, produção de criativos, funis de venda e gestão de campanhas no Meta Ads, com análise de métricas e rastreamento.</p>
+          <span class="badge now">Em andamento</span>
+        </article>
+        <article class="tl-item">
+          <span class="tl-dot"></span>
+          <span class="tl-date">3 meses</span>
+          <h3>Estagiário Administrativo</h3>
+          <p class="tl-place">POUPEX</p>
+          <ul class="bullets">
+            <li>Apoio em rotinas administrativas</li>
+            <li>Organização de documentos e arquivos</li>
+            <li>Atendimento interno e suporte a colaboradores</li>
+            <li>Auxílio no controle de planilhas e dados</li>
+            <li>Suporte em demandas do setor</li>
+          </ul>
+        </article>
+        <article class="tl-item">
+          <span class="tl-dot"></span>
+          <span class="tl-date">Experiência</span>
+          <h3>Social Media</h3>
+          <p>Criação de conteúdo, gestão de redes sociais e relacionamento com a comunidade.</p>
+        </article>
+        <article class="tl-item">
+          <span class="tl-dot"></span>
+          <span class="tl-date">Experiência</span>
+          <h3>Produção de Eventos</h3>
+          <p>Planejamento, logística e execução de eventos do início ao fim.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="cursos" class="section reveal">
+      <span class="eyebrow">05 · Aprendizado</span>
+      <h2>Cursos e qualificações</h2>
+      <div class="grid">
+        <article class="item">
+          <span class="emoji">🗂️</span>
+          <h3>Assistente Administrativo</h3>
+          <p class="tl-place">CIEE</p>
+          <ul class="bullets">
+            <li>Rotinas administrativas</li>
+            <li>Atendimento ao público</li>
+            <li>Organização empresarial</li>
+            <li>Noções de informática corporativa</li>
+          </ul>
+        </article>
+        <article class="item">
+          <span class="emoji">💻</span>
+          <h3>Noções de Programação</h3>
+          <p>Primeiros passos em lógica e desenvolvimento.</p>
+          <span class="badge now">Em andamento</span>
+        </article>
+        <article class="item">
+          <span class="emoji">🖱️</span>
+          <h3>Informática Básica</h3>
+          <p>Uso de computador, internet e ferramentas de escritório.</p>
+        </article>
+        <article class="item">
+          <span class="emoji">🌎</span>
+          <h3>Inglês Básico</h3>
+          <p>Leitura e comunicação em nível básico.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="habilidades" class="section reveal">
+      <span class="eyebrow">06 · Pessoais</span>
+      <h2>Habilidades</h2>
+      <div class="pills">
+        <span>🗣️ Boa comunicação</span>
+        <span>⚡ Facilidade em aprender</span>
+        <span>🗄️ Organização</span>
+        <span>🤝 Trabalho em equipe</span>
+        <span>⏱️ Responsabilidade com prazos</span>
+        <span>🖥️ Conhecimento em informática</span>
+      </div>
+    </section>
+
+    <section id="contato" class="section reveal">
+      <span class="eyebrow">07 · Vamos conversar</span>
       <h2>Contato</h2>
       <p>Quer trabalhar comigo, conhecer meus jogos ou só trocar uma ideia? Me chama.</p>
       <a class="btn" href="mailto:joaopedrorocha22222@gmail.com">Enviar e-mail</a> <a class="btn" href="https://www.instagram.com/jaozi1n_/" target="_blank" rel="noopener">Instagram</a> <a class="btn" href="https://www.linkedin.com/in/jo%C3%A3o-pedro-769100205/" target="_blank" rel="noopener">LinkedIn</a>
