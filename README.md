@@ -13,6 +13,8 @@ Portf-lio-/
 │   └── script.js     # fundo de constelação, animações e menu
 ├── img/
 │   └── foto.jpg      # foto de perfil
+├── cv/
+│   └── Curriculo_Joao_Pedro_Rocha.pdf   # currículo (botão do site)
 └── README.md
 ```
 

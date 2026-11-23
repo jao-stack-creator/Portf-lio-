@@ -260,3 +260,6 @@ footer { text-align: center; padding: 30px; color: var(--muted); font-size: .85r
 }
 .soft h4 { font-size: 1rem; font-weight: 600; margin-bottom: 2px; }
 .soft p { font-size: .88rem; color: var(--muted); margin: 0; line-height: 1.5; }
+
+.cv-btn { margin-top: 26px; background: var(--color); border-color: var(--color); color: #fff; box-shadow: 0 8px 24px rgba(139,124,255,.35); }
+.cv-btn:hover { background: #a094ff; border-color: #a094ff; transform: translateY(-2px); }
