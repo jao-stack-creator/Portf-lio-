@@ -221,3 +221,27 @@ footer { text-align: center; padding: 30px; color: var(--muted); font-size: .85r
 @media (prefers-reduced-motion: reduce) {
   .js .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* Disciplinas por semestre */
+.sub { margin: 34px 0 14px; font-size: 1.05rem; font-weight: 600; color: #dcd8ff; }
+.sem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.sem-card {
+  padding: 22px; border-radius: 14px; border: 1px solid var(--border);
+  background: linear-gradient(160deg, rgba(139,124,255,.10), rgba(36,36,36,.85) 55%);
+  transition: transform .25s, border-color .25s;
+}
+.sem-card:hover { transform: translateY(-4px); border-color: var(--color); }
+.sem-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.sem-head h4 { font-size: 1.1rem; font-weight: 600; }
+.sem-head .badge { margin-top: 2px; }
+.sem-num {
+  width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+  font-size: 1.3rem; font-weight: 800; color: #fff;
+  background: linear-gradient(135deg, var(--color), #5b8cff);
+}
+.sem-list { list-style: none; display: grid; gap: 8px; }
+.sem-list li {
+  display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px;
+  background: rgba(255,255,255,.04); font-size: .93rem; color: #e3e3e3;
+}
+.sem-list li span { font-size: 1.15rem; }
