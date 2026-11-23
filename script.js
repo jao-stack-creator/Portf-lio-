@@ -69,3 +69,15 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) draw();
 
 // ===== Ano no rodapé =====
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// ===== Discord: copiar usuário =====
+const discord = document.getElementById('discord');
+const toast = document.getElementById('toast');
+discord.addEventListener('click', async (e) => {
+  e.preventDefault();
+  const user = discord.dataset.user;
+  try { await navigator.clipboard.writeText(user); } catch (_) {}
+  toast.textContent = `Usuário do Discord copiado: ${user}`;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+});
